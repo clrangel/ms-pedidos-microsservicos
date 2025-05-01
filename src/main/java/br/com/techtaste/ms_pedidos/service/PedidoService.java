@@ -19,7 +19,7 @@ public class PedidoService {
     @Autowired
     private PedidoRepository repository;
 
-    public PedidoResponseDto cadastrarPedido(PedidoRequestDto pedidoDto, boolean erro) {
+    public PedidoResponseDto cadastrarPedido(PedidoRequestDto pedidoDto) {
         Pedido pedido = new Pedido();
         BeanUtils.copyProperties(pedidoDto, pedido);
         Status status = Status.AGUARDANDO_PAGAMENTO;
