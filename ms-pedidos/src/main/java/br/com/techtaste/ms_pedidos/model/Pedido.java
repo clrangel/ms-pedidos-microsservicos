@@ -22,6 +22,14 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+
+    //Calcular valor total do pedido.
+    public void calcularTotal() {
+        this.valorTotal = this.itens.stream()
+                .map(i -> i.getValorUnitario().multiply(BigDecimal.valueOf(i.getQuantidade())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
     public UUID getId() {
         return id;
     }
